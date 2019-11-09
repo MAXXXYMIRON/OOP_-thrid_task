@@ -12,7 +12,7 @@ void main()
 	Point A = Point(-2, -5);
 	Point B = Point(8, 0);
 
-
+	Quadrengle m = Quadrengle(A, B);
 
 	system("pause");
 }
