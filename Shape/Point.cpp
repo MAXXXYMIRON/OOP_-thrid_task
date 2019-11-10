@@ -31,7 +31,7 @@ bool Point::operator == (Point dot)
 }
 bool Point::operator != (Point dot)
 {
-	return (x != dot.x && y != dot.y) ? true : false;
+	return (x != dot.x || y != dot.y) ? true : false;
 }
 
 
@@ -113,4 +113,22 @@ bool Point::DifferentCoordinate(Point dot1, Point dot2, Point dot3, Point dot4)
 bool Point::DifferentCoordinate(Point dot1, Point dot2, Point dot3)
 {
 	return ((dot1 != dot2) && (dot1 != dot3) && (dot2 != dot3)) ? true : false;
+}
+
+//Точки лежат на одной прямой
+bool Point::NotOnOneStraight(Point dot1, Point dot2, Point dot3, Point dot4)
+{
+	if (NotOnOneStraight(dot1, dot2, dot3)) return false;
+	if (NotOnOneStraight(dot1, dot2, dot4)) return false;
+	if (NotOnOneStraight(dot1, dot3, dot4)) return false;
+	if (NotOnOneStraight(dot2, dot3, dot4)) return false;
+	return true;
+}
+
+//Формула для выяснения принадлежности точки прямой
+bool Point::NotOnOneStraight(Point dot1, Point dot2, Point dot3)
+{
+	return (((dot2.x - dot3.x) * (dot1.y - dot3.y)) == ((dot1.x - dot3.x) * (dot2.y - dot3.y))) 
+		? true 
+		: false;
 }

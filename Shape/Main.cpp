@@ -9,10 +9,12 @@ void main()
 {
 	setlocale(0, "");
 
-	Point A = Point(-2, -5);
-	Point B = Point(8, 0);
+	Quadrengle x(Point(1, 2), Point(1, 4));
 
-	Quadrengle m = Quadrengle(A, B);
+	cout << x.Angle(x.GetA()) << endl;
+	cout << x.Angle(x.GetB()) << endl;
+	cout << x.Angle(x.GetC()) << endl;
+	cout << x.Angle(x.GetD()) << endl << endl;
 
 	system("pause");
 }
