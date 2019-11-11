@@ -21,11 +21,33 @@ Triangle::Triangle(Point _A, Point _B, Point _C)
 	C = _C;
 }
 
-////Конструктор создаст прямоугольный, равнобедренный или равносторонний треугольник
-//Triangle::Triangle(Point _A, Point _B, std::string TypeTriangle)
-//{
-//
-//}
+//Конструктор создаст прямоугольный или равнобедренный
+Triangle::Triangle(Point _A, Point _B, std::string TypeTriangle)
+{
+	if (_A == _B) throw NotDifferentCoordinate;
+	if ((_A.x == _B.x) || (_A.y == _B.y)) throw PointPerpendicularOneAxes;
+
+	A = _A;
+	B = _B;
+
+	if (TypeTriangle == RECT)
+	{
+		C.x = (A.y > B.y) ? A.x : B.x;
+		C.y = (A.y < B.y) ? A.y : B.y;
+	}
+
+	else if (TypeTriangle == ISO)
+	{
+		C.x = (A.y > B.y) 
+			? (A.x > B.x) ? A.x + CathetHorizontal(A, B) : A.x - CathetHorizontal(A, B)
+			: (B.x > A.x) ? B.x + CathetHorizontal(A, B) : B.x - CathetHorizontal(A, B);
+
+		C.y = (A.y < B.y) ? A.y : B.y;
+	}
+
+	else
+		throw IncorrectTypeTriangle;
+}
 
 //Присвоит треугольник текущему
 void Triangle::operator = (Triangle T2)
@@ -81,69 +103,91 @@ float Triangle::Perimeter()
 }
 
 
-////Точка медианы к противополжной данной точке стороне
-//Point Triangle::Median(Point dot)
-//{
-//	if (dot == A)
-//	{
-//
-//	}
-//	else if (dot == B)
-//	{
-//
-//	}
-//	else if (dot == C)
-//	{
-//
-//	}
-//
-//	else throw NotCornerPointFigure;
-//}
+//Точка медианы к противополжной данной точке стороне
+float Triangle::Median(Point dot)
+{
+	if (dot == A)
+	{
+		return sqrt(2 * pow(Length(A, B), 2) + 2 * pow(Length(A, C), 2) - Length(B, C)) / 2.0;
+	}
+	else if (dot == B)
+	{
+		return sqrt(2 * pow(Length(B, C), 2) + 2 * pow(Length(B, A), 2) - Length(A, C)) / 2.0;
+	}
+	else if (dot == C)
+	{
+		return sqrt(2 * pow(Length(C, A), 2) + 2 * pow(Length(C, B), 2) - Length(A, B)) / 2.0;
+	}
 
-////Точка высоты к противополжной данной точке стороне
-//Point Triangle::Height(Point dot)
-//{
-//	if (dot == A)
-//	{
-//
-//	}
-//	else if (dot == B)
-//	{
-//
-//	}
-//	else if (dot == C)
-//	{
-//
-//	}
-//
-//	else throw NotCornerPointFigure;
-//}
+	else throw NotCornerPointFigure;
+}
 
-////Точка биссектрисы к противополжной данной точке стороне
-//Point Triangle::Bisector(Point dot)
-//{
-//	if (dot == A)
-//	{
-//
-//	}
-//	else if (dot == B)
-//	{
-//
-//	}
-//	else if (dot == C)
-//	{
-//
-//	}
-//
-//	else throw NotCornerPointFigure;
-//}
+//Точка высоты к противополжной данной точке стороне
+float Triangle::Height(Point dot)
+{
+	float p = Perimeter() / 2;
+
+	if (dot == A)
+	{
+		return (2 * sqrt(p * (p - Length(A, B)) * (p - Length(C, B)) * (p - Length(A, C)))) / Length(B, C);
+	}
+	else if (dot == B)
+	{
+		return (2 * sqrt(p * (p - Length(A, B)) * (p - Length(C, B)) * (p - Length(A, C)))) / Length(A, C);
+	}
+	else if (dot == C)
+	{
+		return (2 * sqrt(p * (p - Length(A, B)) * (p - Length(C, B)) * (p - Length(A, C)))) / Length(A, B);
+	}
+
+	else throw NotCornerPointFigure;
+}
+
+//Точка биссектрисы к противополжной данной точке стороне
+float Triangle::Bisector(Point dot)
+{
+	float p = Perimeter() / 2;
+
+	if (dot == A)
+	{
+		return (2 * sqrt(Length(A, B) * Length(A, C) * p * (p - Length(C, B)))) / (Length(A, B) + Length(A, C));
+	}
+	else if (dot == B)
+	{
+		return (2 * sqrt(Length(B, C) * Length(B, A) * p * (p - Length(A, C)))) / (Length(B, C) + Length(B, A));
+	}
+	else if (dot == C)
+	{
+		return (2 * sqrt(Length(C, A) * Length(C, B) * p * (p - Length(A, B)))) / (Length(C, A) + Length(C, B));
+	}
+
+	else throw NotCornerPointFigure;
+}
 
 
-////Угол в данной точке
-//float Triangle::Angle(Point dot)
-//{
-//	if (dot != A && dot != B && dot != C) throw NotCornerPointFigure;
-//}
+//Угол в данной точке
+float Triangle::Angle(Point dot)
+{
+	if (dot != A && dot != B && dot != C) throw NotCornerPointFigure;
+
+	float Cos = 0;
+	if (dot == A)
+	{
+		Cos = (pow(Length(A, B), 2) + pow(Length(A, C), 2) - pow(Length(C, B), 2))
+			/ 2 * Length(A, B) * Length(A, C);
+	}
+	else if (dot == B)
+	{
+		Cos = (pow(Length(A, B), 2) + pow(Length(B, C), 2) - pow(Length(A, C), 2))
+			/ 2 * Length(A, B) * Length(B, C);
+	}
+	else if (dot == C)
+	{
+		Cos = (pow(Length(C, B), 2) + pow(Length(C, A), 2) - pow(Length(A, B), 2))
+			/ 2 * Length(C, B) * Length(C, A);
+	}
+	return acos(Cos) * 180 / 3.14;
+}
 
 
 //Длина стороны
@@ -167,35 +211,44 @@ float Triangle::SideLen(char Num)
 }
 
 
-////Вернуть четырёхугольник, диагональ которого данная сторона
-//Quadrengle Triangle::Quad(char Num)
-//{
-//	if (Num != 1 && Num != 2 && Num != 3) throw NotASide;
-//	switch (Num)
-//	{
-//		case 1:
-//		{
-//
-//		}
-//		break;
-//
-//		case 2:
-//		{
-//
-//		}
-//		break;
-//
-//		case 3:
-//		{
-//
-//		}
-//		break;
-//	}
-//}
+//Вернуть четырёхугольник, диагональ которого данная сторона
+Quadrengle Triangle::Quad(char Num)
+{
+	if (Num != 1 && Num != 2 && Num != 3) throw NotASide;
+	switch (Num)
+	{
+		case 1:
+		{
+			return Quadrengle(C, A, B);
+		}
+		break;
+
+		case 2:
+		{
+			return Quadrengle(A, B, C);
+		}
+		break;
+
+		case 3:
+		{
+			return Quadrengle(B, A, C);
+		}
+		break;
+	}
+}
 
 
-////Выяснить принадлежность точки треугольику
-//bool Triangle::Belong(Point dot)
-//{
-//
-//}
+//Выяснить принадлежность точки треугольику
+bool Triangle::Belong(Point dot)
+{
+	float result = 0;
+
+	Triangle Temp(A, B, dot);
+	result += Temp.Area();
+	Temp = Triangle(A, C, dot);
+	result += Temp.Area();
+	Temp = Triangle(C, B, dot);
+	result += Temp.Area();
+
+	return (result == Area()) ? true : false;
+}

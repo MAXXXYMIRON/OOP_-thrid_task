@@ -139,34 +139,34 @@ float Quadrengle::Diagonal(Point dot)
 }
 
 
-////Угол исходящий из данной точки
-//float Quadrengle::Angle(Point dot)
-//{
-//	if (dot != A && dot != B && dot != C && dot != D) throw NotCornerPointFigure;
-//
-//	float Cos = 0;
-//	if (dot == A)
-//	{
-//		Cos = (pow(Length(A, B), 2) + pow(Length(A, D), 2) - pow(Length(D, B), 2)) 
-//			/ 2 * Length(A, B) * Length(A, D);
-//	}
-//	else if (dot == B)
-//	{
-//		Cos = (pow(Length(A, B), 2) + pow(Length(B, C), 2) - pow(Length(D, C), 2))
-//			/ 2 * Length(A, B) * Length(B, C);
-//	}
-//	else if (dot == C)
-//	{
-//		Cos = (pow(Length(C, B), 2) + pow(Length(C, D), 2) - pow(Length(D, B), 2))
-//			/ 2 * Length(C, B) * Length(C, D);
-//	}
-//	else if (dot == D)
-//	{
-//		Cos = (pow(Length(A, D), 2) + pow(Length(D, C), 2) - pow(Length(A, C), 2))
-//			/ 2 * Length(A, D) * Length(D, C);
-//	}
-//	return (Cos * 180) / 3.14;
-//}
+//Угол исходящий из данной точки
+float Quadrengle::Angle(Point dot)
+{
+	if (dot != A && dot != B && dot != C && dot != D) throw NotCornerPointFigure;
+
+	float Cos = 0;
+	if (dot == A)
+	{
+		Cos = (pow(Length(A, B), 2) + pow(Length(A, D), 2) - pow(Length(D, B), 2)) 
+			/ 2 * Length(A, B) * Length(A, D);
+	}
+	else if (dot == B)
+	{
+		Cos = (pow(Length(A, B), 2) + pow(Length(B, C), 2) - pow(Length(D, C), 2))
+			/ 2 * Length(A, B) * Length(B, C);
+	}
+	else if (dot == C)
+	{
+		Cos = (pow(Length(C, B), 2) + pow(Length(C, D), 2) - pow(Length(D, B), 2))
+			/ 2 * Length(C, B) * Length(C, D);
+	}
+	else if (dot == D)
+	{
+		Cos = (pow(Length(A, D), 2) + pow(Length(D, C), 2) - pow(Length(A, C), 2))
+			/ 2 * Length(A, D) * Length(D, C);
+	}
+	return acos(Cos) * 180 / 3.14;
+}
 
 
 //Длинна стороны 1, 2, 3 или 4
@@ -214,8 +214,19 @@ Triangle Quadrengle::Trian(Point dot)
 }
 
 
-////Принадлежность точки фигуре
-//bool Quadrengle::Belong(Point dot)
-//{
-//
-//}
+//Принадлежность точки фигуре
+bool Quadrengle::Belong(Point dot)
+{
+	float result = 0;
+
+	Triangle Temp(A, B, dot);
+	result += Temp.Area();
+	Temp = Triangle(A, D, dot);
+	result += Temp.Area();
+	Temp = Triangle(C, D, dot);
+	result += Temp.Area();
+	Temp = Triangle(C, B, dot);
+	result += Temp.Area();
+
+	return (result == Area()) ? true : false;
+}

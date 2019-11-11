@@ -82,56 +82,64 @@ float Circle::Diameter()
 
 
 
-////Длина хорды по точке, лежащей на прямой r O
-//float Circle::LenChord(Point dot)
-//{
-//
-//}
+//Длина хорды по точке, лежащей на прямой r O
+float Circle::LenChord(Point dot)
+{
+	if (NotOnOneStraight(r, O, dot)) throw NoOnOneStraight;
+	return 2 * sqrt(pow(Rad(), 2) * pow(Rad() - Length(dot, r), 2));
+}
 
-////Длина хорды по двум точкам на окружности
-//float Circle::LenChord(Point dot1, Point dot2)
-//{
-//
-//}
+//Длина хорды по двум точкам на окружности
+float Circle::LenChord(Point dot1, Point dot2)
+{
+	if ((Rad() != Length(dot1, O)) && (Rad() != Length(dot2, O))) throw NotLieBoundaryCircle;
+	return Length(dot1, dot2);
+}
 
-////Длина хорды по углу
-//float Circle::LenChord(float Angle)
-//{
-//
-//}
+//Длина хорды по углу
+float Circle::LenChord(float Angle)
+{
+	if (Angle > 180) throw IncorrectAngle;
+	return 2 * Rad() * sin((Angle / 2.0) * 3.14 / 180);
+}
 
-////Длина дуги по хорде
-//float Circle::LenArc(float LenChord)
-//{
-//
-//}
+//Длина дуги по хорде
+float Circle::LenArc(float LenChord)
+{
+	if (LenChord > Diameter()) throw ChordLongerDiametr;
+	return Rad() * AngleSeg(LenChord) * 3.14 / 180;
+}
 
-////Площадь сегмента по хорде
-//float Circle::AreaSeg(float LenChord)
-//{
-//
-//}
+//Площадь сегмента по хорде
+float Circle::AreaSeg(float LenChord)
+{
+	if (LenChord > Diameter()) throw ChordLongerDiametr;
+	return pow(Rad(), 2) * ((AngleSeg(LenChord) * 3.14 / 180) - (sin(AngleSeg(LenChord) * 3.14 / 180))) / 2;
+}
 
-////Периметр сегмента по хорде
-//float Circle::PerimetrSeg(float LenChord)
-//{
-//
-//}
+//Периметр сегмента по хорде
+float Circle::PerimetrSeg(float LenChord)
+{
+	if (LenChord > Diameter()) throw ChordLongerDiametr;
+	return LenChord + LenArc(LenChord);
+}
 
-////Угол сегмента по хорде
-//float Circle::AngleSeg(float LenChord)
-//{
-//
-//}
+//Угол сегмента по хорде
+float Circle::AngleSeg(float LenChord)
+{
+	if (LenChord > Diameter()) throw ChordLongerDiametr;
+	return asin(LenChord / Rad()) * 180 / 3.14;
+}
 
-////Высота сегмента по хорде 
-//float Circle::HeightSeg(float LenChord)
-//{
-//
-//}
+//Высота сегмента по хорде 
+float Circle::HeightSeg(float LenChord)
+{
+	if (LenChord > Diameter()) throw ChordLongerDiametr;
+	return Rad() * (1 - cos(AngleSeg(LenChord) / 2  * 3.14 / 180));
+}
 
-////Выяснить принадлежность точки треугольику
-//bool Circle::Belong(Point dot)
-//{
-//
-//}
+//Выяснить принадлежность точки треугольику
+bool Circle::Belong(Point dot)
+{
+	return (Length(O, dot) <= Rad()) ? true : false;
+}

@@ -16,5 +16,8 @@ void main()
 	cout << x.Angle(x.GetC()) << endl;
 	cout << x.Angle(x.GetD()) << endl << endl;
 
+	Triangle d(Point(5, -1), Point(-1, 4), Point(1, 1));
+	//x = d.Quad(1);
+
 	system("pause");
 }

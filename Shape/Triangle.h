@@ -9,13 +9,12 @@ private:
 public:
 	const std::string RECT = "Rectengular";
 	const std::string ISO = "Isosceles";
-	const std::string EQU = "Equilateral";
 
 	Triangle();
 	~Triangle();
 	//Конструктор создаст заданный треугольник
 	Triangle(Point _A, Point _B, Point _C);
-	//Конструктор создаст прямоугольный, равнобедренный или равносторонний треугольник
+	//Конструктор создаст прямоугольный или равнобедренный
 	Triangle(Point _A, Point _B, std::string TypeTriangle);
 
 	//Присвоит треугольник текущему
@@ -34,11 +33,11 @@ public:
 	//Периметр
 	float Perimeter();
 	//Точка медианы к противополжной данной точке стороне
-	Point Median(Point dot);
+	float Median(Point dot);
 	//Точка высоты к противополжной данной точке стороне
-	Point Height(Point dot);
+	float Height(Point dot);
 	//Точка биссектрисы к противополжной данной точке стороне
-	Point Bisector(Point dot);
+	float Bisector(Point dot);
 	//Угол в данной точке
 	float Angle(Point dot);
 	//Длина стороны

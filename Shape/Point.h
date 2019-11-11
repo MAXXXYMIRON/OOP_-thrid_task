@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include<stdlib.h>
 #include "math.h"
 #include <string>
 
@@ -16,7 +17,13 @@ public:
 	{
 		NotDifferentCoordinate, //Не разные координаты 
 		OnOneStraight, //Точки лежат на одной прямой
+		NoOnOneStraight, //Точки не лежат на одной прямой
 		NotASide, //Указанный номер стороны не является стороной
+		NotLieBoundaryCircle, //Точка не лежит на границе окружности
+		IncorrectAngle, //Угол больше 180 градусов
+		IncorrectTypeTriangle, //Не существующий тип треугольника
+		PointPerpendicularOneAxes, //Точки перпендикулярны одной из осей
+		ChordLongerDiametr, //Хорда длиньше диаметра
 		NotCornerPointFigure //Не является угловой точкой фигуры
 	};
 

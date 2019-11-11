@@ -1,6 +1,5 @@
 #pragma once
 #include "Point.h"
-#include "Triangle.h"
 
 class Circle : Point
 {
