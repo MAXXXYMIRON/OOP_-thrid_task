@@ -126,14 +126,14 @@ float Quadrengle::Perimeter()
 }
 
 
-//Диагональ лежащая против данной точки
+//Диагональ исходящая из данной точки
 float Quadrengle::Diagonal(Point dot)
 {
 	if (dot == A || dot == C)
-		return Length(B, D);
+		return Length(A, C);
 
 	else if (dot == B || dot == D)
-		return Length(A, C);
+		return Length(B, D);
 
 	else throw NotCornerPointFigure;
 }

@@ -1,8 +1,12 @@
 #pragma once
+#include "Shape.h"
 #include "Point.h"
+
 #include "Quadrengle.h"
 
-class Triangle : Point
+class Quadrangle;
+
+class Triangle : Shape
 {
 private:
 	Point A, B, C;
@@ -29,9 +33,10 @@ public:
 	void SetC(Point dot);
 
 	//Площадь
-	float Area();
+	float Area() override;
 	//Периметр
-	float Perimeter();
+	float Perimeter() override;
+
 	//Точка медианы к противополжной данной точке стороне
 	float Median(Point dot);
 	//Точка высоты к противополжной данной точке стороне

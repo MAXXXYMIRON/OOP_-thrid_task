@@ -1,9 +1,11 @@
 #pragma once
+#include "Shape.h"
 #include "Point.h"
 #include "Triangle.h"
 
+class Triangle;
 
-class Quadrengle : Point
+class Quadrengle : Shape
 {
 private:
 	Point A, B, C, D;
@@ -31,10 +33,11 @@ public:
 	void operator = (Quadrengle Q2);
 
 	//Площадь
-	float Area();
+	float Area() override;
 	//Периметр
-	float Perimeter();
-	//Диагональ лежащая против данной точки
+	float Perimeter() override;
+
+	//Диагональ исходящая из данной точки
 	float Diagonal(Point dot);
 	//Угол исходящий из данной точки
 	float Angle(Point dot);
@@ -44,6 +47,5 @@ public:
 	Triangle Trian(Point dot);
 	//Принадлежность точки фигуре
 	bool Belong(Point dot);
-
 };
 

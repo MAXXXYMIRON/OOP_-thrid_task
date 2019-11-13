@@ -1,34 +1,36 @@
 #pragma once
+#include "Shape.h"
 #include "Point.h"
 
-class Circle : Point
+
+class Circle : Shape
 {
 private:
-	Point r, O;
+	float R;
+	Point O;
 public:
 	Circle();
 	~Circle();
-	Circle(Point _r, Point _O);
+	Circle(float _R, Point _O);
 
 	//Присвоиь окружость текущей
 	void operator = (Circle C2);
 
 	//Доступ
-	Point GetR();
+	float GetR();
 	Point GetO();
-	void SetR(Point _r);
+	void SetR(float _R);
 	void SetO(Point _O);
 
 	//Площадь
-	float Area();
+	float Area() override;
 	//Периметр
-	float Perimeter();
+	float Perimeter() override;
+
 	//Полуплощадь
 	float HalfArea();
 	//Полупериметр
 	float HalfPerimeter();
-	//Радиус
-	float Rad();
 	//Диаметр
 	float Diameter();
 
@@ -38,6 +40,9 @@ public:
 	float LenChord(Point dot1, Point dot2);
 	//Длина хорды по углу
 	float LenChord(float Angle);
+	//Длина хорды по высоте сермента
+	float LenChord(float Height, char flag);
+
 	//Длина дуги по хорде
 	float LenArc(float LenChord);
 	//Площадь сегмента по хорде
