@@ -1,4 +1,13 @@
-﻿  Main.cpp
+﻿  Circle.cpp
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(52): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(57): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(97): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(113): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(120): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(134): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(141): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+  Color.cpp
+  Main.cpp
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.h(51): error C3646: Quad: неизвестный спецификатор переопределения
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.h(51): error C2059: синтаксическая ошибка: (
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.h(51): error C2238: непредвиденные лексемы перед ";"
@@ -9,12 +18,12 @@ c:\users\knigh\desktop\oop\inheritence\shape\triangle.h(51): error C2059: син
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.h(51): error C2238: непредвиденные лексемы перед ";"
 c:\users\knigh\desktop\oop\inheritence\shape\quadrengle.cpp(120): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\knigh\desktop\oop\inheritence\shape\quadrengle.cpp(168): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+  Shape.cpp
   Triangle.cpp
-c:\users\knigh\desktop\oop\inheritence\shape\quadrengle.h(47): error C3646: Trian: неизвестный спецификатор переопределения
-c:\users\knigh\desktop\oop\inheritence\shape\quadrengle.h(47): error C2059: синтаксическая ошибка: (
-c:\users\knigh\desktop\oop\inheritence\shape\quadrengle.h(47): error C2238: непредвиденные лексемы перед ";"
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(111): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(115): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(119): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(189): warning C4244: return: преобразование "double" в "float", возможна потеря данных
   Создание кода...
+c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(211): warning C4715: Triangle::SideLen: значение возвращается не при всех путях выполнения
+c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(238): warning C4715: Triangle::Quad: значение возвращается не при всех путях выполнения

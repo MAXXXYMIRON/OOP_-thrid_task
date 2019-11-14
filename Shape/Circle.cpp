@@ -11,7 +11,7 @@ Circle::~Circle()
 }
 Circle::Circle(float _R, Point _O)
 {
-	if (_R == 0) throw ZeroRadius;
+	if (_R <= 0) throw IncorrectRadius;
 	R = _R;
 	O = _O;
 }
@@ -37,7 +37,7 @@ Point Circle::GetO()
 
 void Circle::SetR(float _R)
 {
-	if (_R == 0) throw ZeroRadius;
+	if (_R == 0) throw IncorrectRadius;
 	R = _R;
 }
 void Circle::SetO(Point _O)
