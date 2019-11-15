@@ -4,6 +4,7 @@
 #include "Triangle.h"
 
 class Triangle;
+class Quadrengle;
 
 class Quadrangle : Shape
 {

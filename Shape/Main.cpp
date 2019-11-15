@@ -8,9 +8,6 @@ void main()
 {
 	setlocale(0, "");
 
-	Quadrangle x = Quadrangle();
-	
-
 
 	system("pause");
 }

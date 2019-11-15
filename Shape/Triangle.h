@@ -1,8 +1,8 @@
 #pragma once
 #include "Shape.h"
 #include "Point.h"
-
 #include "Quadrangle.h"
+
 
 class Quadrangle;
 
