@@ -120,7 +120,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Quadrengle.cpp" />
+    <ClCompile Include="Quadrangle.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
@@ -128,7 +128,7 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="Quadrengle.h" />
+    <ClInclude Include="Quadrangle.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>

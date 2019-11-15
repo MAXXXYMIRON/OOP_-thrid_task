@@ -2,7 +2,7 @@
 #include "Shape.h"
 #include "Point.h"
 
-#include "Quadrengle.h"
+#include "Quadrangle.h"
 
 class Quadrangle;
 
@@ -48,7 +48,7 @@ public:
 	//Длина стороны
 	float SideLen(char Num);
 	//Вернуть четырёхугольник, диагональ которого данная сторона
-	Quadrengle Quad(char Num);
+	Quadrangle Quad(char Num);
 	//Выяснить принадлежность точки треугольику
 	bool Belong(Point dot);
 };

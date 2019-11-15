@@ -212,26 +212,26 @@ float Triangle::SideLen(char Num)
 
 
 //Вернуть четырёхугольник, диагональ которого данная сторона
-Quadrengle Triangle::Quad(char Num)
+Quadrangle Triangle::Quad(char Num)
 {
 	if (Num != 1 && Num != 2 && Num != 3) throw NotASide;
 	switch (Num)
 	{
 		case 1:
 		{
-			return Quadrengle(C, A, B);
+			return Quadrangle(C, A, B);
 		}
 		break;
 
 		case 2:
 		{
-			return Quadrengle(A, B, C);
+			return Quadrangle(A, B, C);
 		}
 		break;
 
 		case 3:
 		{
-			return Quadrengle(B, A, C);
+			return Quadrangle(B, A, C);
 		}
 		break;
 	}

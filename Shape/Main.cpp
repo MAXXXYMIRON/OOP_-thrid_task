@@ -1,4 +1,4 @@
-#include "Quadrengle.h"
+#include "Quadrangle.h"
 #include "Triangle.h"
 #include "Circle.h"
 
@@ -8,7 +8,7 @@ void main()
 {
 	setlocale(0, "");
 
-	Quadrengle x = Quadrengle();
+	Quadrangle x = Quadrangle();
 	
 
 
