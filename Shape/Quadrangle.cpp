@@ -27,13 +27,13 @@ Quadrangle::Quadrangle(Point _A, Point _B, Point _D, Point _C)
 Quadrangle::Quadrangle(Point _A, Point _B, Point _D)
 {
 	if (!DifferentCoordinate(_A, _B, _D)) throw NotDifferentCoordinate;
-	if (!NotOnOneStraight(A, B, C)) throw OnOneStraight;
+	if (!NotOnOneStraight(_A, _B, _D)) throw OnOneStraight;
 
 	A = _A;
 	B = _B;
 	D = _D;
 	C.x = A.x + D.x - B.x;
-	C.y = A.y + B.y - D.y;
+	C.y = D.y + B.y - A.y;
 }
 // вадрат
 Quadrangle::Quadrangle(Point _A, Point _B)
@@ -147,22 +147,22 @@ float Quadrangle::Angle(Point dot)
 	if (dot == A)
 	{
 		Cos = (pow(Length(A, B), 2) + pow(Length(A, D), 2) - pow(Length(D, B), 2)) 
-			/ 2 * Length(A, B) * Length(A, D);
+			/ (2 * Length(A, B) * Length(A, D));
 	}
 	else if (dot == B)
 	{
-		Cos = (pow(Length(A, B), 2) + pow(Length(B, C), 2) - pow(Length(D, C), 2))
-			/ 2 * Length(A, B) * Length(B, C);
+		Cos = (pow(Length(A, B), 2) + pow(Length(B, C), 2) - pow(Length(A, C), 2))
+			/ (2 * Length(A, B) * Length(B, C));
 	}
 	else if (dot == C)
 	{
 		Cos = (pow(Length(C, B), 2) + pow(Length(C, D), 2) - pow(Length(D, B), 2))
-			/ 2 * Length(C, B) * Length(C, D);
+			/ (2 * Length(C, B) * Length(C, D));
 	}
 	else if (dot == D)
 	{
 		Cos = (pow(Length(A, D), 2) + pow(Length(D, C), 2) - pow(Length(A, C), 2))
-			/ 2 * Length(A, D) * Length(D, C);
+			/ (2 * Length(A, D) * Length(D, C));
 	}
 	return acos(Cos) * 180 / 3.14;
 }

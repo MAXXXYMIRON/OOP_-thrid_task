@@ -1,15 +1,9 @@
-﻿  Main.cpp
-c:\users\knigh\desktop\oop\inheritence\shape\main.cpp(8): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-  Quadrangle.cpp
-c:\users\knigh\desktop\oop\inheritence\shape\quadrangle.cpp(119): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\knigh\desktop\oop\inheritence\shape\quadrangle.cpp(167): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-  Triangle.cpp
-c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(111): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(115): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(119): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(189): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-  Создание кода...
-c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(211): warning C4715: Triangle::SideLen: значение возвращается не при всех путях выполнения
-c:\users\knigh\desktop\oop\inheritence\shape\triangle.cpp(238): warning C4715: Triangle::Quad: значение возвращается не при всех путях выполнения
-c:\users\knigh\desktop\oop\inheritence\shape\quadrangle.cpp(194): warning C4715: Quadrangle::SideLen: значение возвращается не при всех путях выполнения
+﻿  Circle.cpp
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(52): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(57): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(97): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(113): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(120): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(134): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\knigh\desktop\oop\inheritence\shape\circle.cpp(141): warning C4244: return: преобразование "double" в "float", возможна потеря данных
   Shape.vcxproj -> C:\Users\KNIGH\Desktop\OOP\Inheritence\Debug\Shapes.exe

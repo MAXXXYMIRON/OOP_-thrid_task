@@ -93,8 +93,7 @@ void Triangle::SetC(Point dot)
 //ѕлощадь
 float Triangle::Area()
 {
-	return
-		(((A.x - C.x) * (B.y - C.y)) - ((B.x - C.x) * (A.y - C.y))) / 2;
+	return abs((((A.x - C.x) * (B.y - C.y)) - ((B.x - C.x) * (A.y - C.y))) / 2);
 }
 //ѕериметр
 float Triangle::Perimeter()
@@ -103,26 +102,26 @@ float Triangle::Perimeter()
 }
 
 
-//“очка медианы к противополжной данной точке стороне
+//ƒлина медианы проведенной из данной точки
 float Triangle::Median(Point dot)
 {
 	if (dot == A)
 	{
-		return sqrt(2 * pow(Length(A, B), 2) + 2 * pow(Length(A, C), 2) - Length(B, C)) / 2.0;
+		return sqrt(2 * pow(Length(A, B), 2) + 2 * pow(Length(A, C), 2) - pow(Length(B, C), 2)) / 2.0;
 	}
 	else if (dot == B)
 	{
-		return sqrt(2 * pow(Length(B, C), 2) + 2 * pow(Length(B, A), 2) - Length(A, C)) / 2.0;
+		return sqrt(2 * pow(Length(B, C), 2) + 2 * pow(Length(B, A), 2) - pow(Length(A, C), 2)) / 2.0;
 	}
 	else if (dot == C)
 	{
-		return sqrt(2 * pow(Length(C, A), 2) + 2 * pow(Length(C, B), 2) - Length(A, B)) / 2.0;
+		return sqrt(2 * pow(Length(C, A), 2) + 2 * pow(Length(C, B), 2) - pow(Length(A, B), 2)) / 2.0;
 	}
 
 	else throw NotCornerPointFigure;
 }
 
-//“очка высоты к противополжной данной точке стороне
+//ƒлина высоты проведенной из данной точки
 float Triangle::Height(Point dot)
 {
 	float p = Perimeter() / 2;
@@ -143,7 +142,7 @@ float Triangle::Height(Point dot)
 	else throw NotCornerPointFigure;
 }
 
-//“очка биссектрисы к противополжной данной точке стороне
+//ƒлина биссектрисы проведенной из данной точки
 float Triangle::Bisector(Point dot)
 {
 	float p = Perimeter() / 2;
@@ -174,17 +173,17 @@ float Triangle::Angle(Point dot)
 	if (dot == A)
 	{
 		Cos = (pow(Length(A, B), 2) + pow(Length(A, C), 2) - pow(Length(C, B), 2))
-			/ 2 * Length(A, B) * Length(A, C);
+			/ (2 * Length(A, B) * Length(A, C));
 	}
 	else if (dot == B)
 	{
 		Cos = (pow(Length(A, B), 2) + pow(Length(B, C), 2) - pow(Length(A, C), 2))
-			/ 2 * Length(A, B) * Length(B, C);
+			/ (2 * Length(A, B) * Length(B, C));
 	}
 	else if (dot == C)
 	{
 		Cos = (pow(Length(C, B), 2) + pow(Length(C, A), 2) - pow(Length(A, B), 2))
-			/ 2 * Length(C, B) * Length(C, A);
+			/ (2 * Length(C, B) * Length(C, A));
 	}
 	return acos(Cos) * 180 / 3.14;
 }
@@ -200,11 +199,11 @@ float Triangle::SideLen(char Num)
 		return Length(A, B);
 		break;
 
-	case 2:
+	case 3:
 		return Length(A, C);
 		break;
 
-	case 3:
+	case 2:
 		return Length(B, C);
 		break;
 	}

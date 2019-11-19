@@ -50,7 +50,7 @@ void Circle::SetO(Point _O)
 float Circle::Area()
 {
 	return 3.14 * pow(R, 2);
-}
+}	
 //Периметр
 float Circle::Perimeter()
 {
@@ -76,11 +76,11 @@ float Circle::Diameter()
 
 
 
-//Длина хорды по точке, лежащей на прямой r O
+//Длина хорды проведённая перпендикулярно радиусу, через данную точку
 float Circle::LenChord(Point dot) 
 {
-	if (Belong(dot)) throw NotLieInCircle;
-	return 2 * sqrt(pow(R, 2) * pow(Length(dot, O), 2));
+	if (!Belong(dot)) throw NotLieInCircle;
+	return 2 * sqrt(pow(R, 2) - pow((R - Length(dot, O)), 2));
 }
 
 //Длина хорды по двум точкам на окружности
@@ -131,7 +131,7 @@ float Circle::PerimetrSeg(float LenChord)
 float Circle::AngleSeg(float LenChord)
 {
 	if (LenChord > Diameter()) throw ChordLongerDiametr;
-	return asin(LenChord / R) * 180 / 3.14;
+	return asin(LenChord / (2 * R)) * 180 / 3.14;
 }
 
 //Высота сегмента по хорде 
