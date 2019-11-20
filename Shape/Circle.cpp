@@ -131,7 +131,9 @@ float Circle::PerimetrSeg(float LenChord)
 float Circle::AngleSeg(float LenChord)
 {
 	if (LenChord > Diameter()) throw ChordLongerDiametr;
-	return asin(LenChord / (2 * R)) * 180 / 3.14;
+
+	return  acos((2 * pow(R, 2) - pow(LenChord, 2))
+		/ (2 * R * R)) * 180 / 3.14;
 }
 
 //Высота сегмента по хорде 

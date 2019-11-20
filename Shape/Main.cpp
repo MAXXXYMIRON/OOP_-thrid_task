@@ -14,7 +14,7 @@ void main()
 
 	try
 	{
-		cout << "ЧЕТЫРЕХУГОЛЬИК" << endl;
+		cout << "\nЧЕТЫРЕХУГОЛЬИК\n" << endl;
 		Quadrangle Square = Quadrangle(Point(1, 3), Point(3, 1));
 		cout << "Площадь = " << Square.Area() << endl;
 		cout << "Периметр = " << Square.Perimeter() << endl;
@@ -24,7 +24,7 @@ void main()
 		if (Square.Belong(Point(3, 10))) cout << "Точка принадлежит\n";
 		else  cout << "Точка не принадлежит\n";
 
-		cout << "ТРЕУГОЛЬНИК" << endl;
+		cout << "\nТРЕУГОЛЬНИК\n" << endl;
 		Triangle RectengularTriangle = Square.Trian(Square.GetC());
 		cout << "Площадь = " << RectengularTriangle.Area() << endl;
 		cout << "Периметр = " << RectengularTriangle.Perimeter() << endl;
@@ -37,7 +37,7 @@ void main()
 		else  cout << "Точка не принадлежит\n";
 		Quadrangle QuadAtTriangle = RectengularTriangle.Quad(1);
 
-		cout << "ОКРУЖНОСТЬ" << endl;
+		cout << "\nОКРУЖНОСТЬ\n" << endl;
 		Circle Range = Circle(10, Point(0, 0));
 		cout << "Площадь = " << Range.Area() << endl;
 		cout << "Периметр = " << Range.Perimeter() << endl;
@@ -52,8 +52,8 @@ void main()
 		cout << "Угол сегмента по длине хорды = " << Range.AngleSeg(Range.LenChord(Point(0, 10), Point(10, 0))) << endl;
 		cout << "Высота сегмента по длине хорды = " << Range.HeightSeg(Range.LenChord(Point(0, 10), Point(10, 0))) << endl;
 
-
-		cout << "Длина хорды проведённая через данную точку перпендикулярно радиусу = " << Range.LenChord(Point(2, 2)) << endl;
+		if (Range.Belong(Point(4, 3))) cout << "Точка принадлежит\n";
+		else  cout << "Точка не принадлежит\n";
 	}
 	catch(ERRORS e)
 	{
