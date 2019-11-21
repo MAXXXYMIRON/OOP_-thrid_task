@@ -54,6 +54,11 @@ void main()
 
 		if (Range.Belong(Point(4, 3))) cout << "Точка принадлежит\n";
 		else  cout << "Точка не принадлежит\n";
+
+
+		Square.Coloring = new ColorShape(ColorShape::Color::Black);
+		RectengularTriangle.Coloring = new ColorShape(ColorShape::Color::Yellow);
+		Range.Coloring = new ColorShape(ColorShape::Color::White);
 	}
 	catch(ERRORS e)
 	{

@@ -6,7 +6,7 @@
 class Triangle;
 class Quadrengle;
 
-class Quadrangle : Shape
+class Quadrangle : public Shape 
 {
 private:
 	Point A, B, C, D;

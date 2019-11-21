@@ -3,7 +3,7 @@
 #include "Point.h"
 
 
-class Circle : Shape
+class Circle : public Shape
 {
 private:
 	float R;
